@@ -14,9 +14,7 @@ const refs = {
     wrap: document.querySelector('.timer')
 }
 const date = new Date();
-
-console.log(date);
-
+// let intervalId = null;
 const options = {
     enableTime: true,
     dateFormat: "F j, Y H:i",
@@ -36,29 +34,30 @@ const options = {
 }
 
 const fp = flatpickr("#datetime-picker", options);
-console.log(fp);
 
-refs.startBtn.addEventListener("click", startTimer)
+refs.startBtn.addEventListener("click", start)
 
-const timer = (targetData) => {
-    setInterval(() => {
-        const delta = new Date(targetData) - new Date;
-        return delta;
+function start() {
+    const selectedDates = fp.selectedDates[0].getTime();
+    const intervalId = setInterval(() => {
+        const deltaTime = selectedDates - Date.now();
+        console.log(deltaTime);
+        const convertDeltaTime = convertMs(deltaTime);
+        console.log(convertDeltaTime);
+        if (deltaTime <= 0) {
+            clearInterval(intervalId);
+            return
+        }
+        updateClockFace(convertDeltaTime);
     }, 1000);
-
-
 }
 
-
-
-
-// function startTimer(e) {
-//     console.log(e);
-//     // setInterval(() => {
-//     //     const delta = new Date(targetData) - new Date;
-//     //     return delta;
-//     // }, 1000);
-// }
+function updateClockFace({ days, hours, minute, second }) {
+    refs.days.textContent = days;
+    refs.hours.textContent = hours;
+    refs.minutes.textContent = minute;
+    refs.seconds.textContent = second;
+}
 
 function addLeadingZero(value) {
     return String(value).padStart(2, '0');
