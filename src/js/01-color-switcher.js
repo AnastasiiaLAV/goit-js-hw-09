@@ -2,7 +2,7 @@ const refs = {
     start: document.querySelector('button[data-start]'),
     stop: document.querySelector('button[data-stop]')
 }
-
+refs.stop.setAttribute('disabled', 'disabled');
 let intervalId = null;
 
 refs.start.addEventListener("click", () => {
