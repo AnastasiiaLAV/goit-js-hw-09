@@ -3,7 +3,6 @@ import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 require("flatpickr/dist/themes/material_red.css");
 
-
 const refs = {
     input: document.querySelector('#datetime-picker'),
     startBtn: document.querySelector('[data-start]'),
@@ -13,8 +12,7 @@ const refs = {
     seconds: document.querySelector('[data-seconds]'),
     wrap: document.querySelector('.timer')
 }
-const date = new Date();
-// let intervalId = null;
+
 const options = {
     enableTime: true,
     dateFormat: "F j, Y H:i",
@@ -52,11 +50,11 @@ function start() {
     }, 1000);
 }
 
-function updateClockFace({ days, hours, minute, second }) {
+function updateClockFace({ days, hours, minutes, seconds }) {
     refs.days.textContent = days;
     refs.hours.textContent = hours;
-    refs.minutes.textContent = minute;
-    refs.seconds.textContent = second;
+    refs.minutes.textContent = minutes;
+    refs.seconds.textContent = seconds;
 }
 
 function addLeadingZero(value) {
