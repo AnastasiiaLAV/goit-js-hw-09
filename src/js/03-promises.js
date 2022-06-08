@@ -16,10 +16,10 @@ function submitForm(e) {
     const step = Number(refs.step.value);
     const amount = Number(refs.amount.value);
 
-    for (let i = 1; i <= amount; i += 1) {
+    for (let i = 0; i < amount; i += 1) {
         const timeDelay = delay + step * i;
-
-        createPromise(i, timeDelay)
+        const position = i + 1;
+        createPromise(position, timeDelay)
             .then(({ position, delay }) => {
                 return Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
             })
