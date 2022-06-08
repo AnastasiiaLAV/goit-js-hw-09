@@ -39,9 +39,7 @@ function start() {
     const selectedDates = fp.selectedDates[0].getTime();
     const intervalId = setInterval(() => {
         const deltaTime = selectedDates - Date.now();
-        console.log(deltaTime);
         const convertDeltaTime = convertMs(deltaTime);
-        console.log(convertDeltaTime);
         if (deltaTime <= 0) {
             clearInterval(intervalId);
             return
