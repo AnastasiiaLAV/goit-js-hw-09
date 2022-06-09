@@ -3,6 +3,17 @@
     background: radial-gradient(circle, rgba(247, 150, 192, 1) 0%, rgba(118, 174, 241, 1) 100%);
     line-height: 42px;
     padding: 0;
+    border: 1px solid rgb(100, 149, 208);
+    color: #ffffff;
+}
+
+button:disabled {
+    background: rgb(143, 155, 205);
+}
+
+button:disabled:hover {
+    background: rgb(143, 155, 205);
+    box-shadow: none;
     border: none;
 }
 
@@ -19,7 +30,7 @@
     content: "";
     height: 0%;
     width: 1px;
-    box-shadow: -1px -1px 20px 0px rgba(255, 255, 255, 1), -4px -4px 5px 0px rgba(255, 255, 255, 1), 7px 7px 20px 0px rgba(0, 0, 0, .4), 4px 4px 5px 0px rgba(0, 0, 0, .3);
+    box-shadow: -1px -1px 20px 0px rgba(255, 255, 255, 1), -4px -4px 5px 0px rgba(255, 255, 255, 1), 7px 7px 20px 0px rgba(0, 0, 0, 0.5), 4px 4px 5px 0px rgba(0, 0, 0, .3);
 }
 
 .btn:before {
@@ -35,9 +46,10 @@
 }
 
 .btn:hover {
-    background: transparent;
-    color: #76aef1;
-    box-shadow: none;
+    background: rgb(230, 240, 252);
+    color: #00089b;
+    box-shadow: -1px -1px 10px 0px rgba(255, 255, 255, 0.7), -4px -4px 5px 0px rgba(255, 255, 255, 0.7), 7px 7px 10px 0px rgba(0, 0, 0, 0.5), 4px 4px 5px 0px rgba(0, 0, 0, .3);
+    border: none;
 }
 
 .btn:hover:before {
