@@ -5,8 +5,6 @@ const refs = {
 
 let intervalId = null;
 
-refs.stop.disabled = true;
-
 refs.start.addEventListener("click", () => {
     intervalId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
